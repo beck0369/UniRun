@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class ScrollingObject : MonoBehaviour
 {
-    public float speed = 10f;   // ÀÌµ¿ ¼Óµµ
+    public float speed = 10f;   // ì´ë™ ì†ë„
 
-    private void Update()   // °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ÀÏÁ¤ ¼Óµµ·Î ¿ŞÂÊÀ¸·Î ÆòÇàÀÌµ¿ÇÏ´Â Ã³¸®
+    private void Update()   // ê²Œì„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì¼ì • ì†ë„ë¡œ ì™¼ìª½ìœ¼ë¡œ í‰í–‰ì´ë™í•˜ëŠ” ì²˜ë¦¬
     {
-        transform.Translate((transform.right * -1) * speed * Time.deltaTime);   // ÃÊ´ç speedÀÇ ¼Óµµ·Î ¿ŞÂÊÀ¸·Î ÆòÇàÀÌµ¿
+        if (!GameManager.instance.isGameover)   // ê²Œì„ì˜¤ë²„ê°€ ì•„ë‹ˆë¼ë©´
+        {
+            transform.Translate((transform.right * -1) * speed * Time.deltaTime);   // ì´ˆë‹¹ speedì˜ ì†ë„ë¡œ ì™¼ìª½ìœ¼ë¡œ í‰í–‰ì´ë™
+        }
+        // if (GameManager.instance.isGameover)
+        // {
+        //     return;
+        // } ë¡œë„ ì‚¬ìš© ê°€ëŠ¥
     }
 }

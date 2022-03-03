@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             // 점수를 증가
             score += newScore;
-            scoreText.text = "Score" + score;
+            scoreText.text = "Score : " + score;
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScrollingObject : MonoBehaviour
 {
-    public float speed = 10f;   // 이동 속도
+    public float speed = 8f;   // 이동 속도
 
     private void Update()   // 게임 오브젝트를 일정 속도로 왼쪽으로 평행이동하는 처리
     {

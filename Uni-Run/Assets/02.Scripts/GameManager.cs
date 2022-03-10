@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool isGameover = false; // 게임오버 상태
     public Text scoreText;  // 점수를 출력할 UI 텍스트
     public GameObject gameoverUI;   // 게임오버 시 활성화할 UI 게임 오브젝트
+    public GameObject menuPanel;
 
     private int score = 0;  // 게임 점수
 
@@ -56,5 +57,16 @@ public class GameManager : MonoBehaviour
     {
         isGameover = true;  // 현재 상태를 게임오버로 변경
         gameoverUI.SetActive(true); // 게임 UI를 활성화
+        menuPanel.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

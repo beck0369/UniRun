@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameoverUI;   // 게임오버 시 활성화할 UI 게임 오브젝트
     public GameObject menuPanel;
 
+    public int hpCount = 2;
+    public Text hpText;
+
     private int score = 0;  // 게임 점수
 
     private void Awake()    // 게임 시작과 동시에 싱글턴을 구성
@@ -32,6 +35,11 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("씬에 두 개 이상의 게임 매니저가 존재합니다!");
             Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        hpText.text = hpCount.ToString();
     }
 
     private void Update()   // 게임오버 상태에서 게임을 재시작할 수 있게 하는 처리
@@ -68,5 +76,12 @@ public class GameManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public bool Crash()
+    {
+        hpText.text = "" + --hpCount;
+
+        return hpCount <= 0 ? true : false;
     }
 }
